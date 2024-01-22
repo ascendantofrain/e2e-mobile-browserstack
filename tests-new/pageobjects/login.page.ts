@@ -19,7 +19,7 @@ class Login extends Page {
     // if (true) {
     //   return findElementIosTextEquals({ text: username });
     // }
-    return $(`ion-button=${username}`);
+    return IonicButton.withTitle(username);
   }
 
   async clickLogin() {
@@ -37,7 +37,7 @@ class Login extends Page {
   }
 
   async clickUserLogin(username: string) {
-    return (await this.userLoginButton(username)).click();
+    return (await this.userLoginButton(username)).tap();
   }
 }
 

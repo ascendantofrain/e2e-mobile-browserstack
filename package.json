@@ -11,12 +11,14 @@
         "@wdio/mocha-framework": "^8.28.6",
         "@wdio/spec-reporter": "^8.28.6",
         "appium-xcuitest-driver": "^5.14.0",
+        "dotenv": "^16.3.2",
         "ts-node": "^10.9.2",
         "typescript": "^5.3.3",
         "wdio-wait-for": "^3.0.10"
     },
     "scripts": {
         "wdio": "wdio run ./wdio.conf.ts",
+        "wdio:android": "wdio run ./tests-new/config/wdio.android.config.ts",
         "wdio:ios": "wdio run ./tests-new/config/wdio.ios.config.ts",
         "wdio:ios:browserstack": "wdio run ./tests-new/config/wdio.ios.browserstack.config.ts"
     }

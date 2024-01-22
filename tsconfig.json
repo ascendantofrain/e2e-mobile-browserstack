@@ -6,10 +6,12 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "types": ["node",
-            "webdriverio/async",
-            "@wdio/mocha-framework",
-            "expect-webdriverio"],
+    "types": [
+      "node",
+      "webdriverio/async",
+      "@wdio/mocha-framework",
+      "expect-webdriverio"
+    ],
     "target": "es2022"
   }
 }
