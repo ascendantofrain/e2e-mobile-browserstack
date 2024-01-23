@@ -1,17 +1,29 @@
-import { findElementIosTextEquals, findElementIosTextContains } from '../helpers/index.ts';
+import {
+	findElementAndroidTextContains,
+	findElementIosTextContains,
+	isAndroid,
+	isIOS,
+} from '../helpers/index.ts';
 import Page from './page.ts';
 
 class Landing extends Page {
-  get header() {
-    return $('#mainHeader h1');
-  }
+	async header(username: string) {
+		if (isIOS()) {
+			return findElementIosTextContains({ text: username });
+		}
+		if (isAndroid()) {
+			return findElementAndroidTextContains({ text: username });
+		}
+	}
 
-  async headerShouldContainUsername(username: string) {
-    // if (true) {
-    //   expect(await findElementIosTextContains({text: username}))
-    // }
-    expect(await this.header.getText()).toContain(username);
-  }
+	async headerShouldContainUsername(username: string) {
+		if (isIOS()) {
+			return expect(await this.header(username)).toExist();
+		}
+		if (isAndroid()) {
+			return expect(await this.header(username)).toExist();
+		}
+	}
 }
 
 export default new Landing();

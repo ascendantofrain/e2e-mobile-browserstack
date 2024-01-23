@@ -1,23 +1,25 @@
-import { IonicButton } from '../helpers/index.ts';
+import {
+	findElementAndroidTextContains,
+	findElementIosTextContains,
+	isAndroid,
+	isIOS,
+} from '../helpers/index.ts';
 
 import Page from './page.ts';
 
 class About extends Page {
-  get profileTabButton() {
-    return $('#tab-button-profile');
-  }
+	get logoutButton() {
+		if (isIOS()) {
+			return findElementIosTextContains({ text: 'Log Out' });
+		}
+		if (isAndroid()) {
+			return findElementAndroidTextContains({ text: 'Log Out' });
+		}
+	}
 
-  get logoutButton() {
-    return IonicButton.withTitle('Log Out');
-  }
-
-  async clickProfileTabButton() {
-    return this.profileTabButton.click();
-  }
-
-  async clickLogoutButton() {
-    return this.logoutButton.tap();
-  }
+	async clickLogoutButton() {
+		return this.logoutButton.click();
+	}
 }
 
 export default new About();

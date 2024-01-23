@@ -1,25 +1,28 @@
 {
-    "name": "e2e-mobile-browserstack",
-    "type": "module",
-    "devDependencies": {
-        "@testing-library/webdriverio": "^3.2.1",
-        "@wdio/appium-service": "^8.28.6",
-        "@wdio/browserstack-service": "^8.28.6",
-        "@wdio/cli": "^8.28.6",
-        "@wdio/json-reporter": "^8.28.6",
-        "@wdio/local-runner": "^8.28.7",
-        "@wdio/mocha-framework": "^8.28.6",
-        "@wdio/spec-reporter": "^8.28.6",
-        "appium-xcuitest-driver": "^5.14.0",
-        "dotenv": "^16.3.2",
-        "ts-node": "^10.9.2",
-        "typescript": "^5.3.3",
-        "wdio-wait-for": "^3.0.10"
-    },
-    "scripts": {
-        "wdio": "wdio run ./wdio.conf.ts",
-        "wdio:android": "wdio run ./tests-new/config/wdio.android.config.ts",
-        "wdio:ios": "wdio run ./tests-new/config/wdio.ios.config.ts",
-        "wdio:ios:browserstack": "wdio run ./tests-new/config/wdio.ios.browserstack.config.ts"
-    }
+	"name": "e2e-mobile-browserstack",
+	"type": "module",
+	"devDependencies": {
+		"@testing-library/webdriverio": "^3.2.1",
+		"@typescript-eslint/eslint-plugin": "^6.19.1",
+		"@wdio/appium-service": "^8.28.6",
+		"@wdio/browserstack-service": "^8.28.6",
+		"@wdio/cli": "^8.28.6",
+		"@wdio/json-reporter": "^8.28.6",
+		"@wdio/local-runner": "^8.28.7",
+		"@wdio/mocha-framework": "^8.28.6",
+		"@wdio/spec-reporter": "^8.28.6",
+		"appium-xcuitest-driver": "^5.14.0",
+		"dotenv": "^16.3.2",
+		"prettier": "3.2.4",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.3.3",
+		"wdio-wait-for": "^3.0.10"
+	},
+	"scripts": {
+		"prettier": "npx prettier . --write",
+		"wdio": "wdio run ./wdio.conf.ts",
+		"wdio:android": "wdio run ./tests-new/config/wdio.android.config.ts",
+		"wdio:ios": "wdio run ./tests-new/config/wdio.ios.config.ts",
+		"wdio:ios:browserstack": "wdio run ./tests-new/config/wdio.ios.browserstack.config.ts"
+	}
 }

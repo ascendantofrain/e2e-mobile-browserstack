@@ -1,17 +1,17 @@
 {
-  "compilerOptions": {
-    "allowImportingTsExtensions": true,
-    "moduleResolution": "node",
-    "module": "ESNext",
-    "noEmit": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "types": [
-      "node",
-      "webdriverio/async",
-      "@wdio/mocha-framework",
-      "expect-webdriverio"
-    ],
-    "target": "es2022"
-  }
+	"compilerOptions": {
+		"allowImportingTsExtensions": true,
+		"moduleResolution": "node",
+		"module": "ESNext",
+		"noEmit": true,
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true,
+		"types": [
+			"node",
+			"webdriverio/async",
+			"@wdio/mocha-framework",
+			"expect-webdriverio",
+		],
+		"target": "es2022",
+	},
 }

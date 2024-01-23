@@ -1,44 +1,52 @@
-import { IonicButton, findElementIosTextEquals, pause } from '../helpers/index.ts';
-import webview, { CONTEXT_REF } from '../helpers/webview.ts';
+import {
+	IonicButton,
+	pause,
+	switchToIdentity,
+	switchToWeb,
+} from '../helpers/index.ts';
 import Page from './page.ts';
 
 class Login extends Page {
-  get username() {
-    return $('#Username');
-  }
-  get password() {
-    return $('#Password');
-  }
-  get identityLoginButton() {
-    return $('#loginButton');
-  }
-  get loginButton() {
-    return IonicButton.withTitle('Login');
-  }
-  async userLoginButton(username: string) {
-    // if (true) {
-    //   return findElementIosTextEquals({ text: username });
-    // }
-    return IonicButton.withTitle(username);
-  }
+	get username() {
+		return $('#Username');
+	}
 
-  async clickLogin() {
-    await webview.switchToContext(CONTEXT_REF.WEBVIEW);
-    return this.loginButton.tap();
-  }
+	get password() {
+		return $('#Password');
+	}
 
-  async login(username: string, password: string) {
-    await pause(3000);
-    await webview.switchToContext(CONTEXT_REF.IDENTITY);
+	get identityLoginButton() {
+		return $('#loginButton');
+	}
 
-    await this.username.setValue(username);
-    await this.password.setValue(password);
-    await this.identityLoginButton.click();
-  }
+	get loginButton() {
+		return IonicButton.withTitle('Login');
+	}
 
-  async clickUserLogin(username: string) {
-    return (await this.userLoginButton(username)).tap();
-  }
+	async userLoginButton(username: string) {
+		return IonicButton.withTitle(username);
+	}
+
+	async clickLogin() {
+		return this.loginButton.tap();
+	}
+
+	async login(username: string, password: string) {
+		await pause(5000);
+		await switchToIdentity();
+
+		await this.username.setValue(username);
+		await this.password.setValue(password);
+		await this.identityLoginButton.click();
+
+		await switchToWeb();
+	}
+
+	async clickUserLogin(username: string) {
+		const button = await this.userLoginButton(username);
+		await button.click();
+		return await pause(500);
+	}
 }
 
 export default new Login();
