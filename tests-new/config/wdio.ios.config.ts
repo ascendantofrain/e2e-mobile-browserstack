@@ -67,7 +67,7 @@ export const config: WebdriverIO.Config = {
 		],
 	],
 	specs: [
-		'/Users/averheyen/source/repos/e2e-mobile-browserstack/tests-new/specs/app.login-qa.spec.ts',
+		'/Users/averheyen/source/repos/e2e-mobile-browserstack/tests-new/specs/login/app.login-qa.spec.ts',
 	],
 	waitforTimeout: 45000,
 };

@@ -4,6 +4,7 @@ import {
 	switchToIdentity,
 	switchToWeb,
 } from '../helpers/index.ts';
+import Landing from './landing.page.ts';
 import Page from './page.ts';
 
 class Login extends Page {
@@ -45,7 +46,8 @@ class Login extends Page {
 	async clickUserLogin(username: string) {
 		const button = await this.userLoginButton(username);
 		await button.click();
-		return await pause(500);
+		await pause(500);
+		return Landing.headerShouldContainUsername(username);
 	}
 }
 

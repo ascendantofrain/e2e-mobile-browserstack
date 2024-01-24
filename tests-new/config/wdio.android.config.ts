@@ -18,7 +18,7 @@ export const config: WebdriverIO.Config = {
 		{
 			platformName: 'Android',
 			maxInstances: 1,
-			'appium:deviceName': 'Pixel_3_11.0',
+			'appium:deviceName': 'Pixel 7 Pro',
 			'appium:platformVersion': '13',
 			'appium:orientation': 'PORTRAIT',
 			'appium:automationName': 'UiAutomator2',
@@ -26,11 +26,11 @@ export const config: WebdriverIO.Config = {
 				'/Users/averheyen/source/repos/PatriotSoftware.Mobile.MyPatriot/android/app/build/outputs/apk/dev/debug/app-dev-debug.apk',
 			'appium:appWaitActivity':
 				'com.ionicframework.conferenceapp.MainActivity',
-			'appium:newCommandTimeout': 240,
-			'appium:autoWebview': true,
-			'appium:noReset': true,
-			'appium:dontStopAppOnReset': true,
-			'appium:webviewConnectTimeout': 5000,
+			// 'appium:newCommandTimeout': 240,
+			// 'appium:autoWebview': true,
+			// 'appium:noReset': true,
+			// 'appium:dontStopAppOnReset': true,
+			// 'appium:webviewConnectTimeout': 5000,
 		},
 	],
 	connectionRetryCount: 3,
@@ -62,7 +62,7 @@ export const config: WebdriverIO.Config = {
 		],
 	],
 	specs: [
-		'/Users/averheyen/source/repos/e2e-mobile-browserstack/tests-new/specs/app.login-qa.spec.ts',
+		'/Users/averheyen/source/repos/e2e-mobile-browserstack/tests-new/specs/login/app.login-qa.spec.ts',
 	],
 	waitforTimeout: 45000,
 };
