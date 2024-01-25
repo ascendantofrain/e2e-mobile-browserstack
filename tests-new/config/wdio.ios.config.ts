@@ -14,6 +14,7 @@ export const config: WebdriverIO.Config = {
 	baseUrl: process.env.SERVE_PORT
 		? `http://localhost:${process.env.SERVE_PORT}`
 		: 'http://localhost:8080',
+	specs: ['../../tests-new/specs/today/manual/time-entry.spec.ts'],
 	capabilities: [
 		{
 			maxInstances: 1,
@@ -65,9 +66,6 @@ export const config: WebdriverIO.Config = {
 				},
 			},
 		],
-	],
-	specs: [
-		'/Users/averheyen/source/repos/e2e-mobile-browserstack/tests-new/specs/timecards/manual/time-entry.spec.ts',
 	],
 	waitforTimeout: 45000,
 };

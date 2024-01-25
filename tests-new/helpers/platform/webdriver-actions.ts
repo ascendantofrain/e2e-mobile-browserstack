@@ -1,14 +1,14 @@
 import { waitForElement } from '../element.ts';
 import {
-	findElementAndroidName,
 	findElementAndroidTextContains,
 	findElementAndroidTextEquals,
 } from './android.ts';
 import { isAndroid, isIOS } from './index.ts';
 import {
-	findElementIosName,
+	findElementIosNameEquals,
 	findElementIosTextContains,
 	findElementIosTextEquals,
+	findElementIosTypeKey,
 } from './ios.ts';
 
 export async function findElementTextEquals(text: string) {
@@ -31,9 +31,27 @@ export async function findElementTextContains(text: string) {
 
 export async function findElementNameEquals(text: string) {
 	if (isIOS()) {
-		return await waitForElement(findElementIosName({ text }));
+		return await waitForElement(findElementIosNameEquals({ text }));
 	}
 	if (isAndroid()) {
-		return await waitForElement(findElementAndroidName({ text }));
+		return await waitForElement(findElementAndroidTextEquals({ text }));
 	}
+}
+
+export async function findElementNameContains(text: string) {
+	if (isIOS()) {
+		return await waitForElement(findElementIosNameEquals({ text }));
+	}
+	if (isAndroid()) {
+		return await waitForElement(findElementAndroidTextContains({ text }));
+	}
+}
+
+export async function findElementTypeKey(text: string) {
+	if (isIOS()) {
+		return await waitForElement(findElementIosTypeKey({ text }));
+	}
+	// if (isAndroid()) {
+	// 	return await waitForElement(findElementAndroidTextContains({ text }));
+	// }
 }

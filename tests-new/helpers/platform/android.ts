@@ -16,10 +16,10 @@ export function findElementAndroidTextContains({ text }: ElementSelector) {
 	}
 }
 
-export function findElementAndroidName({ text }: ElementSelector) {
-	if (text) {
-		return `android=new UiSelector().name("${text}")`;
-	} else {
-		throw new Error('Unknown name selector strategy');
-	}
+export function findElementAndroidTypeKey({ text }: ElementSelector) {
+	// if (text) {
+	// 	return `-ios class chain:**/XCUIElementTypeKey[\`name == "${text}" AND label == "${text}"\`]`;
+	// } else {
+	throw new Error('Not implemented');
+	//}
 }

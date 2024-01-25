@@ -16,10 +16,26 @@ export function findElementIosTextContains({ text }: ElementSelector) {
 	}
 }
 
-export function findElementIosName({ text }: ElementSelector) {
+export function findElementIosNameEquals({ text }: ElementSelector) {
 	if (text) {
 		return `-ios class chain:**/XCUIElementTypeAny[\`name == "${text}" OR value == "${text}"\`]`;
 	} else {
 		throw new Error('Unknown name selector strategy');
+	}
+}
+
+export function findElementIosNameContains({ text }: ElementSelector) {
+	if (text) {
+		return `-ios class chain:**/XCUIElementTypeAny[\`name CONTAINS[c] "${text}" OR value CONTAINS[c] "${text}"\`]`;
+	} else {
+		throw new Error('Unknown name contains selector strategy');
+	}
+}
+
+export function findElementIosTypeKey({ text }: ElementSelector) {
+	if (text) {
+		return `//XCUIElementTypeKey[@name="${text}"]`;
+	} else {
+		throw new Error('Unknown element type key strategy');
 	}
 }

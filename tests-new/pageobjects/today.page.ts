@@ -24,6 +24,10 @@ class Today extends Page {
 		return findElementNameEquals('Save');
 	}
 
+	get addTodaysHoursButton() {
+		return findElementNameEquals('Add, icon');
+	}
+
 	get regularHoursSummary() {
 		var regularLabel = findElementNameEquals('Regular');
 		return;
@@ -51,6 +55,10 @@ class Today extends Page {
 
 	async clickSaveButton() {
 		return (await this.saveButton).click();
+	}
+
+	async clickAddTodaysHoursButton() {
+		return (await this.addTodaysHoursButton).click();
 	}
 }
 
