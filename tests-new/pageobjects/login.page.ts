@@ -1,9 +1,5 @@
-import {
-	IonicButton,
-	pause,
-	switchToIdentity,
-	switchToWeb,
-} from '../helpers/index.ts';
+import { pause, User } from '../helpers/index.ts';
+import { findElementTextEquals } from '../helpers/platform/webdriver-actions.ts';
 import Landing from './landing.page.ts';
 import Page from './page.ts';
 
@@ -20,34 +16,34 @@ class Login extends Page {
 		return $('#loginButton');
 	}
 
-	get loginButton() {
-		return IonicButton.withTitle('Login');
-	}
+	// async loginButton() {
+	// 	return await findElementTextEquals('Login');
+	// }
 
 	async userLoginButton(username: string) {
-		return IonicButton.withTitle(username);
+		return await findElementTextEquals(username);
 	}
 
-	async clickLogin() {
-		return this.loginButton.tap();
-	}
+	// async clickLogin() {
+	// 	return (await this.loginButton()).click();
+	// }
 
-	async login(username: string, password: string) {
-		await pause(5000);
-		await switchToIdentity();
+	// async login(username: string, password: string) {
+	// 	await pause(5000);
+	// 	await switchToIdentity();
 
-		await this.username.setValue(username);
-		await this.password.setValue(password);
-		await this.identityLoginButton.click();
+	// 	await this.username.setValue(username);
+	// 	await this.password.setValue(password);
+	// 	await this.identityLoginButton.click();
 
-		await switchToWeb();
-	}
+	// 	await switchToWeb();
+	// }
 
-	async clickUserLogin(username: string) {
-		const button = await this.userLoginButton(username);
+	async clickUserLogin(user: User) {
+		const button = await this.userLoginButton(user.username);
 		await button.click();
 		await pause(500);
-		return Landing.headerShouldContainUsername(username);
+		return Landing.headerShouldContainUsername(user.firstName);
 	}
 }
 

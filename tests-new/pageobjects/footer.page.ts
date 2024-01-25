@@ -1,23 +1,21 @@
-import {
-	findElementAndroidName,
-	findElementIosName,
-	isAndroid,
-	isIOS,
-} from '../helpers/index.ts';
+import { findElementNameEquals } from '../helpers/platform/webdriver-actions.ts';
 import Page from './page.ts';
 
 class Footer extends Page {
 	get profileTabButton() {
-		if (isIOS()) {
-			return findElementIosName({ text: 'Profile, icon Profile' });
-		}
-		if (isAndroid()) {
-			return findElementAndroidName({ text: 'Profile, icon Profile' });
-		}
+		return findElementNameEquals('Profile, icon Profile');
+	}
+
+	get timeCardsTabButton() {
+		return findElementNameEquals('Time Cards');
 	}
 
 	async clickProfileTabButton() {
-		return this.profileTabButton.click();
+		return (await this.profileTabButton).click();
+	}
+
+	async clickTimeCardsTabButton() {
+		return (await this.timeCardsTabButton).click();
 	}
 }
 

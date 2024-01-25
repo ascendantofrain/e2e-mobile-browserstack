@@ -1,10 +1,5 @@
-import {
-	ElementActionOptions,
-	findElementAndroidTextEquals,
-	findElementIosTextEquals,
-	isAndroid,
-	isIOS,
-} from '../../index.ts';
+import { ElementActionOptions } from '../../index.ts';
+import { findElementTextEquals } from '../../platform/webdriver-actions.ts';
 import { IonicComponent } from './component.ts';
 
 export interface TapButtonOptions extends ElementActionOptions {
@@ -20,11 +15,6 @@ export class IonicButton extends IonicComponent {
 	}
 
 	static withTitle(buttonTitle: string) {
-		if (isIOS()) {
-			return findElementIosTextEquals({ text: buttonTitle });
-		}
-		if (isAndroid()) {
-			return findElementAndroidTextEquals({ text: buttonTitle });
-		}
+		findElementTextEquals(buttonTitle);
 	}
 }

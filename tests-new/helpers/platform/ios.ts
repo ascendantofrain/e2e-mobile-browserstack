@@ -1,35 +1,25 @@
 import { ElementSelector } from '../definitions';
 
-function findElementIosTextEquals({ text }: ElementSelector) {
+export function findElementIosTextEquals({ text }: ElementSelector) {
 	if (text) {
-		return $(
-			`-ios class chain:**/XCUIElementTypeAny[\`label == "${text}" OR value == "${text}"\`]`,
-		);
+		return `-ios class chain:**/XCUIElementTypeAny[\`label == "${text}" OR value == "${text}"\`]`;
 	} else {
-		throw new Error('Unknown selector strategy');
+		throw new Error('Unknown text equals selector strategy');
 	}
 }
 
-function findElementIosTextContains({ text }: ElementSelector) {
+export function findElementIosTextContains({ text }: ElementSelector) {
 	if (text) {
-		return $(
-			`-ios class chain:**/XCUIElementTypeAny[\`label CONTAINS[c] "${text}" OR value CONTAINS[c] "${text}"\`]`,
-		);
+		return `-ios class chain:**/XCUIElementTypeAny[\`label CONTAINS[c] "${text}" OR value CONTAINS[c] "${text}"\`]`;
 	} else {
-		throw new Error('Unknown selector strategy');
+		throw new Error('Unknown text contains selector strategy');
 	}
 }
 
-function findElementIosName({ text }: ElementSelector) {
+export function findElementIosName({ text }: ElementSelector) {
 	if (text) {
-		return $(
-			`-ios class chain:**/XCUIElementTypeAny[\`name == "${text}" OR value == "${text}"\`]`,
-		);
+		return `-ios class chain:**/XCUIElementTypeAny[\`name == "${text}" OR value == "${text}"\`]`;
+	} else {
+		throw new Error('Unknown name selector strategy');
 	}
 }
-
-export {
-	findElementIosName,
-	findElementIosTextContains,
-	findElementIosTextEquals,
-};

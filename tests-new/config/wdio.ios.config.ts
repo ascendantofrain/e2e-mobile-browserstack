@@ -18,24 +18,24 @@ export const config: WebdriverIO.Config = {
 		{
 			maxInstances: 1,
 			'appium:platformName': 'iOS',
+			'appium:automationName': 'XCUITest',
+
 			// 'appium:deviceName': 'Adam iPhone',
 			// 'appium:platformVersion': '17.3',
 			// 'appium:orientation': 'PORTRAIT',
-			'appium:automationName': 'XCUITest',
 			// 'appium:newCommandTimeout': 240,
 			// 'appium:autoWebview': true,
-			// 'appium:noReset': true,
 			// 'appium:fullContextList': true,
 			// 'appium:webviewConnectTimeout': 5000,
-			// For Local testing against simulated evice
-			// 'appium:app':
-			// 	'/Users/averheyen/Library/Developer/Xcode/DerivedData/App-emplllluoflwvteqdetszkejqctk/Build/Products/Debug-iphonesimulator/My Patriot.app',
-			//
+			// For Local testing against simulated device
+			//'appium:app':
+			//	'/Users/averheyen/Library/Developer/Xcode/DerivedData/App-emplllluoflwvteqdetszkejqctk/Build/Products/Debug-iphonesimulator/My Patriot QA.app',
+
 			// For Local testing against a real device
 			'appium:bundleId': 'com.patriotsoftware.mobile.mypatriot',
 			'appium:xcodeSigningId': 'iPhone Developer',
 			'appium:xcodeOrgId': 'NNFA6HSA7U',
-			'appium:udid': '690F4A4F-1BDC-41B2-9105-20812A56A91B',
+			'appium:udid': '00008130-001C39283C20001C',
 		},
 	],
 	connectionRetryCount: 3,
@@ -67,7 +67,7 @@ export const config: WebdriverIO.Config = {
 		],
 	],
 	specs: [
-		'/Users/averheyen/source/repos/e2e-mobile-browserstack/tests-new/specs/login/app.login-qa.spec.ts',
+		'/Users/averheyen/source/repos/e2e-mobile-browserstack/tests-new/specs/timecards/manual/time-entry.spec.ts',
 	],
 	waitforTimeout: 45000,
 };

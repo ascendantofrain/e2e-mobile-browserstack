@@ -1,28 +1,13 @@
-import {
-	findElementAndroidTextContains,
-	findElementIosTextContains,
-	isAndroid,
-	isIOS,
-} from '../helpers/index.ts';
+import { findElementTextContains } from '../helpers/platform/webdriver-actions.ts';
 import Page from './page.ts';
 
 class Landing extends Page {
 	async header(username: string) {
-		if (isIOS()) {
-			return findElementIosTextContains({ text: username });
-		}
-		if (isAndroid()) {
-			return findElementAndroidTextContains({ text: username });
-		}
+		return await findElementTextContains(username);
 	}
 
 	async headerShouldContainUsername(username: string) {
-		if (isIOS()) {
-			return expect(await this.header(username)).toExist();
-		}
-		if (isAndroid()) {
-			return expect(await this.header(username)).toExist();
-		}
+		return expect(await this.header(username)).toExist();
 	}
 }
 

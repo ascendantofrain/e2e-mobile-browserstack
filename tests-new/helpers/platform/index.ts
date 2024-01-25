@@ -69,8 +69,20 @@ export function pause(ms: number) {
 	return driver.pause(ms);
 }
 
-export function hideKeyboard() {
-	return driver.hideKeyboard();
+export async function dismissKeyboard() {
+	// TODO: Determine how to reliably dismiss OS keyboard
+	await pause(5000);
+	await driver.waitUntil(
+		async () => {
+			console.log(await driver.isKeyboardShown());
+			return (await driver.isKeyboardShown()) === true;
+		},
+		{
+			timeout: 5000,
+			interval: 100,
+		},
+	);
+	await driver.hideKeyboard('pressKey', 'Done');
 }
 
 export function onWeb(fn: () => Promise<void>) {

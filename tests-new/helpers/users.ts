@@ -176,4 +176,4 @@ const allEmployees = [
 	employeesByType.TimePunch.Salary.Weekly,
 ];
 
-export { allEmployees, employeesByType };
+export { User, allEmployees, employeesByType };
