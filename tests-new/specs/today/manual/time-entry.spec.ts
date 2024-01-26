@@ -14,11 +14,11 @@ import {
 
 setTimeInTimeOutEmployees.forEach((employee) => {
 	describe(`Set Time In and Time Out for ${employee.username}`, () => {
-		beforeEach(async () => {
+		before(async () => {
 			await Login.clickUserLogin(employee);
 		});
 
-		afterEach(async () => {
+		after(async () => {
 			await Footer.clickTimeCardsTabButton();
 			await TimeCards.resetTimeCardHours();
 
@@ -40,11 +40,11 @@ setTimeInTimeOutEmployees.forEach((employee) => {
 
 regularTimeEntryEmployees.forEach((employee) => {
 	describe(`Manual Time Entry Input for ${employee.username}`, () => {
-		beforeEach(async () => {
+		before(async () => {
 			await Login.clickUserLogin(employee);
 		});
 
-		afterEach(async () => {
+		after(async () => {
 			await Footer.clickTimeCardsTabButton();
 			await TimeCards.resetTimeCardHours();
 

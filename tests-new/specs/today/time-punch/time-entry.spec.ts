@@ -9,11 +9,11 @@ import {
 
 timePunchEmployees.forEach((employee) => {
 	describe(`Time Punch entries for ${employee.username}`, () => {
-		beforeEach(async () => {
+		before(async () => {
 			await Login.clickUserLogin(employee);
 		});
 
-		afterEach(async () => {
+		after(async () => {
 			await Footer.clickTimeCardsTabButton();
 			await TimeCards.resetTimeCardHours();
 
