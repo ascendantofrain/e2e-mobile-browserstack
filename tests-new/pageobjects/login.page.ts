@@ -4,17 +4,17 @@ import Landing from './landing.page.ts';
 import Page from './page.ts';
 
 class Login extends Page {
-	get username() {
-		return $('#Username');
-	}
+	// get username() {
+	// 	return $('#Username');
+	// }
 
-	get password() {
-		return $('#Password');
-	}
+	// get password() {
+	// 	return $('#Password');
+	// }
 
-	get identityLoginButton() {
-		return $('#loginButton');
-	}
+	// get identityLoginButton() {
+	// 	return $('#loginButton');
+	// }
 
 	// async loginButton() {
 	// 	return await findElementTextEquals('Login');

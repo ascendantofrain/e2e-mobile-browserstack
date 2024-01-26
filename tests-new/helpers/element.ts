@@ -1,11 +1,18 @@
 import { ElementActionOptions } from './definitions';
+import { Gestures } from './gestures.ts';
 
 export async function waitForElement(
 	selector: string,
-	{ visibilityTimeout = 5000 }: ElementActionOptions = {},
+	{ visibilityTimeout = 2000 }: ElementActionOptions = {},
 ) {
 	const el = await $(selector);
-	await el.waitForDisplayed({ timeout: visibilityTimeout });
+
+	try {
+		await el.waitForDisplayed({ timeout: visibilityTimeout });
+	} catch (e) {
+		await Gestures.checkIfDisplayedWithSwipeUp(el, 5);
+	}
+
 	return el;
 }
 

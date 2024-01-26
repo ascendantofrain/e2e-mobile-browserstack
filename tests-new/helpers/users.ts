@@ -149,7 +149,14 @@ const employeesByType = {
 	},
 };
 
-const allEmployees = [
+const regularTimeEntryEmployees = [
+	employeesByType.Manual.Salary.Biweekly,
+	employeesByType.Manual.Salary.Monthly,
+	employeesByType.Manual.Salary.SemiMonthly,
+	employeesByType.Manual.Salary.Weekly,
+];
+
+const setTimeInTimeOutEmployees = [
 	employeesByType.Manual.Hourly.Biweekly,
 	employeesByType.Manual.Hourly.Monthly,
 	employeesByType.Manual.Hourly.SemiMonthly,
@@ -158,10 +165,9 @@ const allEmployees = [
 	employeesByType.Manual.SalaryNonExempt.Monthly,
 	employeesByType.Manual.SalaryNonExempt.SemiMonthly,
 	employeesByType.Manual.SalaryNonExempt.Weekly,
-	employeesByType.Manual.Salary.Biweekly,
-	employeesByType.Manual.Salary.Monthly,
-	employeesByType.Manual.Salary.SemiMonthly,
-	employeesByType.Manual.Salary.Weekly,
+];
+
+const timePunchEmployees = [
 	employeesByType.TimePunch.Hourly.Biweekly,
 	employeesByType.TimePunch.Hourly.Monthly,
 	employeesByType.TimePunch.Hourly.SemiMonthly,
@@ -176,4 +182,10 @@ const allEmployees = [
 	employeesByType.TimePunch.Salary.Weekly,
 ];
 
-export { User, allEmployees, employeesByType };
+export {
+	User,
+	employeesByType,
+	regularTimeEntryEmployees,
+	setTimeInTimeOutEmployees,
+	timePunchEmployees,
+};

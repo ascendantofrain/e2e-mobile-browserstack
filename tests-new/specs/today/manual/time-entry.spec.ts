@@ -1,4 +1,7 @@
-import { employeesByType } from '../../../helpers/users.ts';
+import {
+	regularTimeEntryEmployees,
+	setTimeInTimeOutEmployees,
+} from '../../../helpers/users.ts';
 import {
 	Footer,
 	FullModal,
@@ -9,11 +12,21 @@ import {
 	Today,
 } from '../../../pageobjects/pages.ts';
 
-describe('Manual Time Entries', () => {
-	Object.values(employeesByType.Manual.Hourly).forEach((employee) => {
-		it(`Should be able to enter regular hours and other hours to time card as a ${employee.username}`, async () => {
+setTimeInTimeOutEmployees.forEach((employee) => {
+	describe(`Set Time In and Time Out for ${employee.username}`, () => {
+		beforeEach(async () => {
 			await Login.clickUserLogin(employee);
+		});
 
+		afterEach(async () => {
+			await Footer.clickTimeCardsTabButton();
+			await TimeCards.resetTimeCardHours();
+
+			await Footer.clickProfileTabButton();
+			await Profile.clickLogoutButton();
+		});
+
+		it('Should be able to set time in and set time out hours to time card', async () => {
 			await Today.clickSetTimeInButton();
 			await Today.clickAmTimePeriod();
 			await Today.clickSaveButton();
@@ -21,30 +34,30 @@ describe('Manual Time Entries', () => {
 			await Today.clickSetTimeOutButton();
 			await Today.clickPmTimePeriod();
 			await Today.clickSaveButton();
+		});
+	});
+});
 
+regularTimeEntryEmployees.forEach((employee) => {
+	describe(`Manual Time Entry Input for ${employee.username}`, () => {
+		beforeEach(async () => {
+			await Login.clickUserLogin(employee);
+		});
+
+		afterEach(async () => {
 			await Footer.clickTimeCardsTabButton();
 			await TimeCards.resetTimeCardHours();
 
 			await Footer.clickProfileTabButton();
 			await Profile.clickLogoutButton();
 		});
-	});
 
-	Object.values(employeesByType.Manual.Salary).forEach((employee) => {
-		it.only(`Should be able to enter regular hours and other hours to time card as a ${employee.username}`, async () => {
-			await Login.clickUserLogin(employee);
-
-			await Today.clickAddTodaysHoursButton();
+		it('Should be able to enter regular hours and other hours to time card', async () => {
+			await Today.clickEnterTodaysHoursButton();
 			await FullModal.clickRegularHoursInput();
 			await FullModal.enterRegularHours('8');
 			await Keypad.clickDoneButton();
 			await FullModal.clickDoneButton();
-
-			await Footer.clickTimeCardsTabButton();
-			await TimeCards.resetTimeCardHours();
-
-			await Footer.clickProfileTabButton();
-			await Profile.clickLogoutButton();
 		});
 	});
 });

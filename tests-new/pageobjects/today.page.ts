@@ -4,6 +4,26 @@ import { findElementNameEquals } from '../helpers/platform/webdriver-actions.ts'
 import Page from './page.ts';
 
 class Today extends Page {
+	get punchInButton() {
+		return findElementNameEquals('Punch In');
+	}
+
+	get punchOutButton() {
+		return findElementNameEquals('Punch Out');
+	}
+
+	get punchedInTimeDisplay() {
+		return findElementNameEquals('Punched In');
+	}
+
+	get pendingTimeDisplay() {
+		return findElementNameEquals('Pending');
+	}
+
+	get inOutTimeDisplay() {
+		return findElementNameEquals('In / Out');
+	}
+
 	get setTimeInButton() {
 		return findElementNameEquals('Set Time In');
 	}
@@ -24,13 +44,28 @@ class Today extends Page {
 		return findElementNameEquals('Save');
 	}
 
-	get addTodaysHoursButton() {
+	get enterTodaysHoursButton() {
 		return findElementNameEquals('Add, icon');
 	}
 
-	get regularHoursSummary() {
-		var regularLabel = findElementNameEquals('Regular');
-		return;
+	async clickPunchInButton() {
+		return (await this.punchInButton).click();
+	}
+
+	async clickPunchOutButton() {
+		return (await this.punchOutButton).click();
+	}
+
+	async verifyPunchedInTimeDisplay() {
+		// assert time display
+	}
+
+	async verifyPendingTimeDisplay() {
+		// assert time display
+	}
+
+	async verifyInOutTimeDisplay() {
+		// assert time display
 	}
 
 	async clickSetTimeInButton() {
@@ -57,8 +92,8 @@ class Today extends Page {
 		return (await this.saveButton).click();
 	}
 
-	async clickAddTodaysHoursButton() {
-		return (await this.addTodaysHoursButton).click();
+	async clickEnterTodaysHoursButton() {
+		return (await this.enterTodaysHoursButton).click();
 	}
 }
 
