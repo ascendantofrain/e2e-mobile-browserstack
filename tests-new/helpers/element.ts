@@ -3,7 +3,7 @@ import { Gestures } from './gestures.ts';
 
 export async function waitForElement(
 	selector: string,
-	{ visibilityTimeout = 5000 }: ElementActionOptions = {},
+	{ visibilityTimeout = 3000 }: ElementActionOptions = {},
 ) {
 	const el = await $(selector);
 
@@ -13,7 +13,7 @@ export async function waitForElement(
 		await Gestures.checkIfDisplayedWithSwipeUp(el, 5);
 	}
 
-	waitForEnabled(el);
+	waitForEnabled(selector);
 
 	return el;
 }

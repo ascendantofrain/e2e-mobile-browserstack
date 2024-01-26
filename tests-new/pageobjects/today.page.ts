@@ -57,15 +57,15 @@ class Today extends Page {
 	}
 
 	async verifyPunchedInTimeDisplay() {
-		// assert time display
+		expect(await this.punchedInTimeDisplay).toBeDisplayed();
 	}
 
 	async verifyPendingTimeDisplay() {
-		// assert time display
+		expect(await this.pendingTimeDisplay).toBeDisplayed();
 	}
 
 	async verifyInOutTimeDisplay() {
-		// assert time display
+		expect(await this.inOutTimeDisplay).toBeDisplayed();
 	}
 
 	async clickSetTimeInButton() {
