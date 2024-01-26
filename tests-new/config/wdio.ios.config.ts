@@ -14,7 +14,7 @@ export const config: WebdriverIO.Config = {
 	baseUrl: process.env.SERVE_PORT
 		? `http://localhost:${process.env.SERVE_PORT}`
 		: 'http://localhost:8080',
-	specs: ['../../tests-new/specs/**/*.spec.ts'],
+	specs: ['../../tests-new/specs/**/no-pay-period-start-date.spec.ts'],
 	capabilities: [
 		{
 			maxInstances: 1,

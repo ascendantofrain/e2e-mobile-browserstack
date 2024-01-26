@@ -147,6 +147,8 @@ const employeesByType = {
 		),
 		Weekly: new User('Salary-Weekly_Manual', 'Salary-Weekly', 'Manual'),
 	},
+	NoFirstPayPeriodStartDate: new User('Mobile-NoFirstPayPeriodStartDate-EE', 'Salary-Biweekly', 'Manual'),
+	NoTimeCardEntryType: new User('EmployeeWithNoTimeCardEntryType','EmployeeWith','NoTimeCardEntryType')
 };
 
 const regularTimeEntryEmployees = [
@@ -187,5 +189,6 @@ export {
 	employeesByType,
 	regularTimeEntryEmployees,
 	setTimeInTimeOutEmployees,
-	timePunchEmployees,
+	timePunchEmployees
 };
+

@@ -11,11 +11,17 @@ class Footer extends Page {
 	}
 
 	async clickProfileTabButton() {
+		(await this.profileTabButton).isEnabled();
+		
 		return (await this.profileTabButton).click();
 	}
 
 	async clickTimeCardsTabButton() {
 		return (await this.timeCardsTabButton).click();
+	}
+
+	async timeCardsTabShouldBeDisabled() {
+		return expect(await this.timeCardsTabButton).toBeDisabled();
 	}
 }
 

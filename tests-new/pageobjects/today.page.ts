@@ -1,6 +1,9 @@
 import { isAm, isPm } from '../helpers/datetime.ts';
 import { findElementNameEquals } from '../helpers/platform/webdriver-actions.ts';
 
+import {
+	Today
+} from '../../pageobjects/pages.ts';
 import Page from './page.ts';
 
 class Today extends Page {
@@ -46,6 +49,10 @@ class Today extends Page {
 
 	get enterTodaysHoursButton() {
 		return findElementNameEquals('Add, icon');
+	}
+
+	get timeCardCurrentlyUnavailableWarning() {
+		return findElementNameEquals('Time Card Currently Unavailable');
 	}
 
 	async clickPunchInButton() {
@@ -94,6 +101,10 @@ class Today extends Page {
 
 	async clickEnterTodaysHoursButton() {
 		return (await this.enterTodaysHoursButton).click();
+	}
+
+	async verifyTimeCardCurrentlyUnavailableWarning() {
+		expect(await this.timeCardCurrentlyUnavailableWarning).toBeDisplayed();
 	}
 }
 

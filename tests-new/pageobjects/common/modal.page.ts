@@ -7,11 +7,6 @@ class Modal extends Page {
 	}
 
 	async clickDoneButton() {
-		if (!(await this.doneButton).isDisplayed()) {
-			return;
-		}
-
-		(await this.doneButton).waitForEnabled();
 		return (await this.doneButton).click();
 	}
 }
