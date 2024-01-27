@@ -1,4 +1,4 @@
-import { ElementActionOptions } from './definitions';
+import { ElementActionOptions } from './definitions.ts';
 import { Gestures } from './gestures.ts';
 
 export async function waitForElement(

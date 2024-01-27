@@ -6,7 +6,8 @@ import {
     Profile
 } from '../../pageobjects/pages.ts';
 
-describe(`Login for ${employeesByType.NoFirstPayPeriodStartDate}`, () => {
+// Handling this situation isn't developed yet.
+xdescribe(`Login for ${employeesByType.NoFirstPayPeriodStartDate}`, () => {
     before(async() => {
         await Login.clickUserLogin(employeesByType.NoFirstPayPeriodStartDate);
     });
@@ -17,8 +18,7 @@ describe(`Login for ${employeesByType.NoFirstPayPeriodStartDate}`, () => {
         await Profile.clickLogoutButton();
     });
 
-    // Handling this situation isn't developed yet.
-    xit('Should display warning and disallow ape usage', async() => {
+    it('Should display warning and disallow ape usage', async() => {
         await Alert.shouldHaveWarningMessage('No employee was found with the supplied parameters')
         await Alert.clickOkButton();
     });

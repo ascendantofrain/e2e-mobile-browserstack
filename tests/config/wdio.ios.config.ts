@@ -14,23 +14,29 @@ export const config: WebdriverIO.Config = {
 	baseUrl: process.env.SERVE_PORT
 		? `http://localhost:${process.env.SERVE_PORT}`
 		: 'http://localhost:8080',
+	specs: ['../../tests/specs/**/*.spec.ts'],
 	capabilities: [
 		{
-			platformName: 'Android',
 			maxInstances: 1,
-			'appium:deviceName': 'Pixel 7 Pro',
-			'appium:platformVersion': '13',
-			'appium:orientation': 'PORTRAIT',
-			'appium:automationName': 'UiAutomator2',
-			'appium:app':
-				'/Users/averheyen/source/repos/PatriotSoftware.Mobile.MyPatriot/android/app/build/outputs/apk/dev/debug/app-dev-debug.apk',
-			'appium:appWaitActivity':
-				'com.ionicframework.conferenceapp.MainActivity',
+			'appium:platformName': 'iOS',
+			'appium:automationName': 'XCUITest',
+
+			// 'appium:deviceName': 'Adam iPhone',
+			// 'appium:platformVersion': '17.3',
+			// 'appium:orientation': 'PORTRAIT',
 			// 'appium:newCommandTimeout': 240,
 			// 'appium:autoWebview': true,
-			// 'appium:noReset': true,
-			// 'appium:dontStopAppOnReset': true,
+			// 'appium:fullContextList': true,
 			// 'appium:webviewConnectTimeout': 5000,
+			// For Local testing against simulated device
+			//'appium:app':
+			//	'/Users/averheyen/Library/Developer/Xcode/DerivedData/App-emplllluoflwvteqdetszkejqctk/Build/Products/Debug-iphonesimulator/My Patriot QA.app',
+
+			// For Local testing against a real device
+			'appium:bundleId': 'com.patriotsoftware.mobile.mypatriot',
+			'appium:xcodeSigningId': 'iPhone Developer',
+			'appium:xcodeOrgId': 'NNFA6HSA7U',
+			'appium:udid': '00008130-001C39283C20001C',
 		},
 	],
 	connectionRetryCount: 3,
@@ -39,8 +45,17 @@ export const config: WebdriverIO.Config = {
 	logLevel: process.env.VERBOSE === 'true' ? 'debug' : 'error',
 	mochaOpts: {
 		timeout: 1200000,
+		retries: 1,
 	},
-	reporters: ['spec'],
+	reporters: [
+		[
+			'spec',
+			{
+				onlyFailures: true,
+				realTimeReporting: true,
+			},
+		],
+	],
 	runner: 'local',
 	port: 4723,
 	services: [
@@ -60,9 +75,6 @@ export const config: WebdriverIO.Config = {
 				},
 			},
 		],
-	],
-	specs: [
-		'/Users/averheyen/source/repos/e2e-mobile-browserstack/tests-new/specs/login/app.login-qa.spec.ts',
 	],
 	waitforTimeout: 45000,
 };

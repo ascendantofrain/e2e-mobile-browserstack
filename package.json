@@ -2,6 +2,7 @@
     "name": "e2e-mobile-browserstack",
     "type": "module",
     "devDependencies": {
+        "@moroo/wdio-slack-reporter": "^8.1.0",
         "@testing-library/webdriverio": "^3.2.1",
         "@typescript-eslint/eslint-plugin": "^6.19.1",
         "@wdio/appium-service": "^8.28.6",
@@ -20,9 +21,9 @@
     },
     "scripts": {
         "prettier": "npx prettier . --write",
-        "wdio": "wdio run ./wdio.conf.ts",
-        "wdio:android": "wdio run ./tests-new/config/wdio.android.config.ts",
-        "wdio:ios": "wdio run ./tests-new/config/wdio.ios.config.ts",
-        "wdio:ios:browserstack": "wdio run ./tests-new/config/wdio.ios.browserstack.config.ts"
+        "wdio:android": "wdio run ./tests/config/wdio.android.config.ts",
+        "wdio:android:browserstack": "wdio run ./tests/config/wdio.android.browserstack.config.ts",
+        "wdio:ios": "wdio run ./tests/config/wdio.ios.config.ts",
+        "wdio:ios:browserstack": "wdio run ./tests/config/wdio.ios.browserstack.config.ts"
     }
 }

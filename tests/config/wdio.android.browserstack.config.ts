@@ -1,10 +1,10 @@
 export const config: WebdriverIO.Config = {
-	user: 'adamverheyen3',
-	key: 'aDYjbnkyCAqS6sjfkcsp',
+	user: '',
+	key: '',
 	hostname: 'hub.browserstack.com',
 
 	specs: [
-		'/Users/averheyen/source/repos/e2e-mobile-browserstack/tests-new/specs/app.login-qa.spec.ts',
+		'',
 	],
 
 	services: [

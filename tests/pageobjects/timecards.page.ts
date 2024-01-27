@@ -1,4 +1,4 @@
-import { findElementNameEquals } from '../helpers/platform/webdriver-actions.ts';
+import { findElementNameContains, findElementNameEquals } from '../helpers/platform/webdriver-actions.ts';
 
 import Page from './page.ts';
 
@@ -13,6 +13,10 @@ class TimeCards extends Page {
 
 	get resetAlertButton() {
 		return findElementNameEquals('Reset');
+	}
+
+	get commentsButton() {
+		return findElementNameContains('Comments');
 	}
 
 	async resetTimeCardHours() {

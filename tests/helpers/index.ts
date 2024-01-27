@@ -8,5 +8,3 @@ export * from './gestures.ts';
 export * from './platform/index.ts';
 export * from './storage.ts';
 export * from './users.ts';
-
-export * from './ionic/index.ts';
