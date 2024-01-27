@@ -1,0 +1,8 @@
+import { config } from './wdio.shared.config.ts';
+
+config.maxInstances = 4;
+config.user = '';
+config.key = '';
+config.hostname = 'hub.browserstack.com';
+
+export { config };

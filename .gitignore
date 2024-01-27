@@ -1,3 +1,5 @@
+tests/config/wdio.browserstack.config.ts
+
 node_modules
 logs
 

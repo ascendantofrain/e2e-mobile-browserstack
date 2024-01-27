@@ -1,57 +1,22 @@
-export const config: WebdriverIO.Config = {
-	user: '',
-	key: '',
-	hostname: 'hub.browserstack.com',
+import { config } from './wdio.shared.appium.config.ts';
 
-	specs: [
-		'',
-	],
+config.capabilities = [
+	{
+		maxInstances: 1,
+		'appium:platformName': 'Android',
+		'appium:automationName': 'UiAutomator2',
+		'appium:orientation': 'PORTRAIT',
+		'appium:newCommandTimeout': 240,
+		'appium:autoWebview': true,
+		'appium:fullContextList': true,
+		'appium:webviewConnectTimeout': 5000,
 
-	services: [
-		'appium',
-		[
-			'browserstack',
-			{
-				app: 'bs://68c292cc15f36f5e6e5db89d3c6319cb2cf71be4',
-				buildIdentifier: '${BUILD_NUMBER}',
-				browserstackLocal: false,
-			},
-		],
-	],
-
-	capabilities: [
-		{
-			'bstack:options': {
-				networkLogs: true,
-				deviceName: 'iPhone 14 Pro Max',
-				platformVersion: '16',
-				platformName: 'ios',
-				timezone: 'New_York',
-			},
-		},
-	],
-
-	commonCapabilities: {
-		'bstack:options': {
-			projectName: 'My Patriot App',
-			buildName: 'My Patriot App',
-			debug: true,
-			networkLogs: true,
-		},
+		// For Local testing against a real device
+		// 'appium:bundleId': 'com.patriotsoftware.mobile.mypatriot',
+		// 'appium:xcodeSigningId': 'iPhone Developer',
+		// 'appium:xcodeOrgId': 'NNFA6HSA7U',
+		// 'appium:udid': '00008130-001C39283C20001C',
 	},
+];
 
-	maxInstances: 2,
-	logLevel: 'info',
-	bail: 0,
-	baseUrl: '',
-	waitforTimeout: 10000,
-	connectionRetryTimeout: 120000,
-	connectionRetryCount: 3,
-
-	framework: 'mocha',
-	reporters: ['spec'],
-	mochaOpts: {
-		ui: 'bdd',
-		timeout: 180000,
-	},
-};
+export { config };

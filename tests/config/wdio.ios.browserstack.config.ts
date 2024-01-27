@@ -1,57 +1,35 @@
-export const config: WebdriverIO.Config = {
-	user: '',
-	key: '',
-	hostname: 'hub.browserstack.com',
+import { config } from './wdio.browserstack.config.ts';
 
-	specs: [
-		'',
-	],
-
-	services: [
-		'appium',
-		[
-			'browserstack',
-			{
-				app: 'bs://68c292cc15f36f5e6e5db89d3c6319cb2cf71be4',
-				buildIdentifier: '${BUILD_NUMBER}',
-				browserstackLocal: false,
-			},
-		],
-	],
-
-	capabilities: [
+config.services = [
+	'appium',
+	[
+		'browserstack',
 		{
-			'bstack:options': {
-				networkLogs: true,
-				deviceName: 'iPhone 14 Pro Max',
-				platformVersion: '16',
-				platformName: 'ios',
-				timezone: 'New_York',
-			},
+			app: 'bs://68c292cc15f36f5e6e5db89d3c6319cb2cf71be4',
+			buildIdentifier: '${BUILD_NUMBER}',
+			browserstackLocal: false,
 		},
 	],
-
-	commonCapabilities: {
+];
+config.capabilities = [
+	{
 		'bstack:options': {
-			projectName: 'My Patriot App',
-			buildName: 'My Patriot App',
-			debug: true,
 			networkLogs: true,
+			deviceName: 'iPhone 14 Pro Max',
+			platformVersion: '16',
+			platformName: 'ios',
+			timezone: 'New_York',
 		},
 	},
-
-	maxInstances: 2,
-	logLevel: 'info',
-	bail: 0,
-	baseUrl: '',
-	waitforTimeout: 10000,
-	connectionRetryTimeout: 120000,
-	connectionRetryCount: 3,
-
-	framework: 'mocha',
-	reporters: ['spec'],
-	mochaOpts: {
-		ui: 'bdd',
-		timeout: 180000,
+	{
+		'bstack:options': {
+			networkLogs: true,
+			deviceName: 'iPhone SE 2020',
+			platformVersion: '16.4',
+			platformName: 'ios',
+			timezone: 'New_York',
+		},
 	},
-};
+];
+
+export { config };
