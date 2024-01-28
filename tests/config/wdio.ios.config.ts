@@ -7,10 +7,10 @@ config.capabilities = [
 		'appium:platformName': 'iOS',
 		'appium:automationName': 'XCUITest',
 		'appium:orientation': 'PORTRAIT',
-		'appium:newCommandTimeout': 240,
-		'appium:autoWebview': true,
-		'appium:fullContextList': true,
-		'appium:webviewConnectTimeout': 5000,
+		// 'appium:newCommandTimeout': 240,
+		// 'appium:autoWebview': true,
+		// 'appium:fullContextList': true,
+		// 'appium:webviewConnectTimeout': 5000,
 
 		// For Local testing against a real device
 		'appium:bundleId': 'com.patriotsoftware.mobile.mypatriot',

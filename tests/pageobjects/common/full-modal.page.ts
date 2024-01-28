@@ -2,7 +2,6 @@ import {
 	findElementNameContains,
 	findElementNameEquals,
 } from '../../helpers/platform/webdriver-actions.ts';
-import { Keypad } from '../pages.ts';
 import Modal from './modal.page.ts';
 
 class FullModal extends Modal {
@@ -28,12 +27,9 @@ class FullModal extends Modal {
 			return (await this.nextDayBackwardsButton).click();
 	}
 
-	async clickRegularHoursInput() {
-		return (await this.regularHoursInput).click();
-	}
-
 	async enterRegularHours(hours: string) {
-		return await Keypad.clickNumKeys(hours);
+		(await this.regularHoursInput).click();
+		return (await this.regularHoursInput).setValue(hours);
 	}
 }
 

@@ -39,3 +39,19 @@ export function findElementIosTypeKey({ text }: ElementSelector) {
 		throw new Error('Unknown element type key strategy');
 	}
 }
+
+export function findElementIosValueEquals({ text }: ElementSelector) {
+	if (text) {
+		return `-ios class chain:**/XCUIElementTypeAny[\`value == "${text}"\`]`;
+	} else {
+		throw new Error('Unknown value selector strategy');
+	}
+}
+
+export function findElementIosValueContains({ text }: ElementSelector) {
+	if (text) {
+		return `-ios class chain:**/XCUIElementTypeAny[\`value CONTAINS[c] "${text}"\`]`;
+	} else {
+		throw new Error('Unknown value contains selector strategy');
+	}
+}

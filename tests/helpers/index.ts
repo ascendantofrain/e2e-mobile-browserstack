@@ -7,4 +7,3 @@ export * from './element.ts';
 export * from './gestures.ts';
 export * from './platform/index.ts';
 export * from './storage.ts';
-export * from './users.ts';

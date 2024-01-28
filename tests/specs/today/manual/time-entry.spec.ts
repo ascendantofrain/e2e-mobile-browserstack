@@ -54,7 +54,6 @@ regularTimeEntryEmployees.forEach((employee) => {
 
 		it('Should be able to enter regular hours and other hours to time card', async () => {
 			await Today.clickEnterTodaysHoursButton();
-			await FullModal.clickRegularHoursInput();
 			await FullModal.enterRegularHours('8');
 			await Keypad.clickDoneButton();
 			await FullModal.clickDoneButton();

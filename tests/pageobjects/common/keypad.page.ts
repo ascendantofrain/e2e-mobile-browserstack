@@ -1,7 +1,4 @@
-import {
-	findElementNameEquals,
-	findElementTypeKey,
-} from '../../helpers/platform/webdriver-actions.ts';
+import { findElementNameEquals } from '../../helpers/platform/webdriver-actions.ts';
 import Page from '../page.ts';
 
 class Keypad extends Page {
@@ -11,12 +8,6 @@ class Keypad extends Page {
 
 	async clickDoneButton() {
 		return (await this.doneButton).click();
-	}
-
-	async clickNumKeys(keys: string) {
-		for (const c of keys) {
-			(await findElementTypeKey(c.toString())).click();
-		}
 	}
 }
 

@@ -1,5 +1,6 @@
 import { config } from './wdio.shared.config.ts';
 
+config.port = 4723;
 config.services = (config.services ? config.services : []).concat([
 	[
 		'appium',
