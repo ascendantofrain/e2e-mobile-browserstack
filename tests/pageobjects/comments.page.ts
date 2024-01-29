@@ -29,6 +29,7 @@ class Comments extends Page {
 	}
 
 	async typeComment(comment: string) {
+		this.clearComment();
 		return (await this.getEmployeeCommentsTextArea).setValue(comment);
 	}
 

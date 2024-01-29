@@ -1,9 +1,6 @@
 import { isAm, isPm } from '../helpers/datetime.ts';
 import { findElementNameEquals } from '../helpers/platform/webdriver-actions.ts';
 
-import {
-	Today
-} from '../../pageobjects/pages.ts';
 import Page from './page.ts';
 
 class Today extends Page {

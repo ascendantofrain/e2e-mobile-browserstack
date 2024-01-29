@@ -9,7 +9,3 @@ export interface ElementActionOptions {
 export interface ElementSelector {
 	text: string;
 }
-
-export interface ElementTypeSelector {
-	type: string;
-}

@@ -1,4 +1,7 @@
-import { findElementNameContains, findElementNameEquals } from '../helpers/platform/webdriver-actions.ts';
+import {
+	findElementNameContains,
+	findElementNameEquals
+} from '../helpers/platform/webdriver-actions.ts';
 
 import Page from './page.ts';
 
@@ -19,6 +22,14 @@ class TimeCards extends Page {
 		return findElementNameContains('Comments');
 	}
 
+	get editTimeCardButton() {
+		return findElementNameEquals('Edit Time Card');
+	}
+
+	async submitHoursButton(hours: string) {
+		return findElementNameEquals(`Submit ${hours} hours`);
+	}
+
 	async resetTimeCardHours() {
 		await this.clickEllipsisButton();
 		await this.clickResetTimeCardHours();
@@ -35,6 +46,14 @@ class TimeCards extends Page {
 
 	async clickResetAlertButton() {
 		return (await this.resetAlertButton).click();
+	}
+
+	async clickSubmitHoursButton(hours: string) {
+		return (await this.submitHoursButton(hours)).click();
+	}
+
+	async clickEditTimeCardButton() {
+		return (await this.editTimeCardButton).click();
 	}
 }
 

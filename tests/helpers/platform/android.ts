@@ -1,6 +1,4 @@
-import { ElementSelector, ElementTypeSelector } from '../definitions';
-
-export function findElementByTextEqualsAndroid({ text }: ElementSelector) {
+export function findElementByTextEqualsAndroid(text: string) {
 	if (text) {
 		return `android=new UiSelector().text("${text}")`;
 	} else {
@@ -8,7 +6,7 @@ export function findElementByTextEqualsAndroid({ text }: ElementSelector) {
 	}
 }
 
-export function findElementByTextContainsAndroid({ text }: ElementSelector) {
+export function findElementByTextContainsAndroid(text: string) {
 	if (text) {
 		return `android=new UiSelector().textContains("${text}")`;
 	} else {
@@ -16,7 +14,7 @@ export function findElementByTextContainsAndroid({ text }: ElementSelector) {
 	}
 }
 
-export function findElementByTypeAndroid({ type }: ElementTypeSelector) {
+export function findElementByTypeAndroid(type: string) {
 	if (type) {
 		//return `//${type}`;
 	} else {

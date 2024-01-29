@@ -67,7 +67,9 @@ export async function url(newUrl: string) {
 		try {
 			const fullUrl = new URL(newUrl, currentUrl);
 			return browser.url(fullUrl.href);
-		} catch (e) {}
+		} catch (e) {
+			throw new Error(e);
+		}
 	}
 
 	return browser.url(newUrl);
@@ -130,7 +132,7 @@ export async function setLocation(lat: number, lng: number) {
 
 	return driver.setGeoLocation({
 		latitude: '' + lat,
-		longitude: '' + lat,
+		longitude: '' + lng,
 		altitude: '94.23'
 	});
 }

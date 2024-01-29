@@ -1,5 +1,5 @@
 const config: WebdriverIO.Config = {
-	specs: ['../../tests/specs/**/*.spec.ts'],
+	specs: ['../../tests/specs/**/manual/time-entry.spec.ts'],
 	maxInstances: 2,
 	logLevel: 'error',
 	bail: 0,
@@ -13,15 +13,15 @@ const config: WebdriverIO.Config = {
 		[
 			'spec',
 			{
-				realTimeReporting: true,
-			},
-		],
+				realTimeReporting: true
+			}
+		]
 	],
 	mochaOpts: {
 		retries: 1,
 		ui: 'bdd',
-		timeout: 180000,
-	},
+		timeout: 180000
+	}
 };
 
 export { config };

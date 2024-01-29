@@ -15,43 +15,43 @@ import {
 
 export async function findElementTextEquals(text: string) {
 	if (isIOS()) {
-		return await waitForElement(findElementTextEqualsIos({ text }));
+		return await waitForElement(findElementTextEqualsIos(text));
 	}
 	if (isAndroid()) {
-		return await waitForElement(findElementByTextEqualsAndroid({ text }));
+		return await waitForElement(findElementByTextEqualsAndroid(text));
 	}
 }
 
 export async function findElementTextContains(text: string) {
 	if (isIOS()) {
-		return await waitForElement(findElementTextContainsIos({ text }));
+		return await waitForElement(findElementTextContainsIos(text));
 	}
 	if (isAndroid()) {
-		return await waitForElement(findElementByTextContainsAndroid({ text }));
+		return await waitForElement(findElementByTextContainsAndroid(text));
 	}
 }
 
 export async function findElementNameEquals(text: string) {
 	if (isIOS()) {
-		return await waitForElement(findElementNameEqualsIos({ text }));
+		return await waitForElement(findElementNameEqualsIos(text));
 	}
 	if (isAndroid()) {
-		return await waitForElement(findElementByTextEqualsAndroid({ text }));
+		return await waitForElement(findElementByTextEqualsAndroid(text));
 	}
 }
 
 export async function findElementNameContains(text: string) {
 	if (isIOS()) {
-		return await waitForElement(findElementNameEqualsIos({ text }));
+		return await waitForElement(findElementNameEqualsIos(text));
 	}
 	if (isAndroid()) {
-		return await waitForElement(findElementByTextContainsAndroid({ text }));
+		return await waitForElement(findElementByTextContainsAndroid(text));
 	}
 }
 
 export async function findElementValueEquals(text: string) {
 	if (isIOS()) {
-		return await waitForElement(findElementValueEqualsIos({ text }));
+		return await waitForElement(findElementValueEqualsIos(text));
 	}
 	if (isAndroid()) {
 		//return await waitForElement(findElementValueEqualsAndroid({ test }));
@@ -60,7 +60,7 @@ export async function findElementValueEquals(text: string) {
 
 export async function findElementValueContains(text: string) {
 	if (isIOS()) {
-		return await waitForElement(findElementValueContainsIos({ text }));
+		return await waitForElement(findElementValueContainsIos(text));
 	}
 	if (isAndroid()) {
 		//return await waitForElement(findElementAndroidValue({ test }));
@@ -69,7 +69,7 @@ export async function findElementValueContains(text: string) {
 
 export async function findElementByType(type: string) {
 	if (isIOS()) {
-		return await waitForElement(findElementByTypeIos({ type }));
+		return await waitForElement(findElementByTypeIos(type));
 	}
 	if (isAndroid()) {
 		//return await waitForElement(findElementByTypeIos({ type }));

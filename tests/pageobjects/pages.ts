@@ -10,4 +10,3 @@ export { default as Today } from './today.page.ts';
 // Common Components
 export { default as Alert } from './common/alert.page.ts';
 export { default as FullModal } from './common/full-modal.page.ts';
-export { default as Keypad } from './common/keypad.page.ts';
