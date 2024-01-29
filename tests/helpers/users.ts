@@ -16,147 +16,147 @@ const employeesByType = {
 			Biweekly: new User(
 				'Hourly-Biweekly_Manual',
 				'Hourly-Biweekly',
-				'Manual',
+				'Manual'
 			),
 			Monthly: new User(
 				'Hourly-Monthly_Manual',
 				'Hourly-Monthly',
-				'Manual',
+				'Manual'
 			),
 			SemiMonthly: new User(
 				'Hourly-SemiMonthly_Manual',
 				'Hourly-SemiMonthly',
-				'Manual',
+				'Manual'
 			),
-			Weekly: new User('Hourly-Weekly_Manual', 'Hourly-Weekly', 'Manual'),
+			Weekly: new User('Hourly-Weekly_Manual', 'Hourly-Weekly', 'Manual')
 		},
 		SalaryNonExempt: {
 			Biweekly: new User(
 				'SalaryNonExempt-Biweekly_Manual',
 				'SalaryNonExempt-Biweekly',
-				'Manual',
+				'Manual'
 			),
 			Monthly: new User(
 				'SalaryNonExempt-Monthly_Manual',
 				'SalaryNonExempt-Monthly',
-				'Manual',
+				'Manual'
 			),
 			SemiMonthly: new User(
 				'SalaryNonExempt-SemiMonthly_Manual',
 				'SalaryNonExempt-SemiMonthly',
-				'Manual',
+				'Manual'
 			),
 			Weekly: new User(
 				'SalaryNonExempt-Weekly_Manual',
 				'SalaryNonExempt-Weekly',
-				'Manual',
-			),
+				'Manual'
+			)
 		},
 		Salary: {
 			Biweekly: new User(
 				'Salary-Biweekly_Manual',
 				'Salary-Biweekly',
-				'Manual',
+				'Manual'
 			),
 			Monthly: new User(
 				'Salary-Monthly_Manual',
 				'Salary-Monthly',
-				'Manual',
+				'Manual'
 			),
 			SemiMonthly: new User(
 				'Salary-SemiMonthly_Manual',
 				'Salary-SemiMonthly',
-				'Manual',
+				'Manual'
 			),
-			Weekly: new User('Salary-Weekly_Manual', 'Salary-Weekly', 'Manual'),
-		},
+			Weekly: new User('Salary-Weekly_Manual', 'Salary-Weekly', 'Manual')
+		}
 	},
 	TimePunch: {
 		Hourly: {
 			Biweekly: new User(
 				'Hourly-Biweekly_TimePunch',
 				'Hourly-Biweekly',
-				'TimePunch',
+				'TimePunch'
 			),
 			Monthly: new User(
 				'Hourly-Monthly_TimePunch',
 				'Hourly-Monthly',
-				'TimePunch',
+				'TimePunch'
 			),
 			SemiMonthly: new User(
 				'Hourly-SemiMonthly_TimePunch',
 				'Hourly-SemiMonthly',
-				'TimePunch',
+				'TimePunch'
 			),
 			Weekly: new User(
 				'Hourly-Weekly_TimePunch',
 				'Hourly-Weekly',
-				'TimePunch',
-			),
+				'TimePunch'
+			)
 		},
 		SalaryNonExempt: {
 			Biweekly: new User(
 				'SalaryNonExempt-Biweekly_TimePunch',
 				'SalaryNonExempt-Biweekly',
-				'TimePunch',
+				'TimePunch'
 			),
 			Monthly: new User(
 				'SalaryNonExempt-Monthly_TimePunch',
 				'SalaryNonExempt-Monthly',
-				'TimePunch',
+				'TimePunch'
 			),
 			SemiMonthly: new User(
 				'SalaryNonExempt-SemiMonthly_TimePunch',
 				'SalaryNonExempt-SemiMonthly',
-				'TimePunch',
+				'TimePunch'
 			),
 			Weekly: new User(
 				'SalaryNonExempt-Weekly_TimePunch',
 				'SalaryNonExempt-Weekly',
-				'TimePunch',
-			),
+				'TimePunch'
+			)
 		},
 		Salary: {
 			Biweekly: new User(
 				'Salary-Biweekly_TimePunch',
 				'Salary-Biweekly',
-				'TimePunch',
+				'TimePunch'
 			),
 			Monthly: new User(
 				'Salary-Monthly_TimePunch',
 				'Salary-Monthly',
-				'TimePunch',
+				'TimePunch'
 			),
 			SemiMonthly: new User(
 				'Salary-SemiMonthly_TimePunch',
 				'Salary-SemiMonthly',
-				'TimePunch',
+				'TimePunch'
 			),
 			Weekly: new User(
 				'Salary-Weekly_TimePunch',
 				'Salary-Weekly',
-				'TimePunch',
-			),
-		},
+				'TimePunch'
+			)
+		}
 	},
 	CloneTimeCard: {
 		Biweekly: new User(
 			'Salary-Biweekly_Manual',
 			'Salary-Biweekly',
-			'Manual',
+			'Manual'
 		),
-		Weekly: new User('Salary-Weekly_Manual', 'Salary-Weekly', 'Manual'),
+		Weekly: new User('Salary-Weekly_Manual', 'Salary-Weekly', 'Manual')
 	},
 	NoFirstPayPeriodStartDate: new User(
 		'Mobile-NoFirstPayPeriodStartDate-EE',
 		'Salary-Biweekly',
-		'Manual',
+		'Manual'
 	),
 	NoTimeCardEntryType: new User(
 		'EmployeeWithNoTimeCardEntryType',
 		'EmployeeWith',
-		'NoTimeCardEntryType',
-	),
+		'NoTimeCardEntryType'
+	)
 };
 
 const allEmployees = [
@@ -179,14 +179,14 @@ const allEmployees = [
 	employeesByType.TimePunch.Salary.Biweekly,
 	employeesByType.TimePunch.Salary.Monthly,
 	employeesByType.TimePunch.Salary.SemiMonthly,
-	employeesByType.TimePunch.Salary.Weekly,
+	employeesByType.TimePunch.Salary.Weekly
 ];
 
 const regularTimeEntryEmployees = [
 	employeesByType.Manual.Salary.Biweekly,
 	employeesByType.Manual.Salary.Monthly,
 	employeesByType.Manual.Salary.SemiMonthly,
-	employeesByType.Manual.Salary.Weekly,
+	employeesByType.Manual.Salary.Weekly
 ];
 
 const setTimeInTimeOutEmployees = [
@@ -197,7 +197,7 @@ const setTimeInTimeOutEmployees = [
 	employeesByType.Manual.SalaryNonExempt.Biweekly,
 	employeesByType.Manual.SalaryNonExempt.Monthly,
 	employeesByType.Manual.SalaryNonExempt.SemiMonthly,
-	employeesByType.Manual.SalaryNonExempt.Weekly,
+	employeesByType.Manual.SalaryNonExempt.Weekly
 ];
 
 const timePunchEmployees = [
@@ -212,13 +212,19 @@ const timePunchEmployees = [
 	employeesByType.TimePunch.Salary.Biweekly,
 	employeesByType.TimePunch.Salary.Monthly,
 	employeesByType.TimePunch.Salary.SemiMonthly,
-	employeesByType.TimePunch.Salary.Weekly,
+	employeesByType.TimePunch.Salary.Weekly
 ];
 
+const EmployeeWithNoTimeCardEntryType = employeesByType.NoTimeCardEntryType;
+const EmployeeWithNoFirstPayPeriodStartDate =
+	employeesByType.NoFirstPayPeriodStartDate;
+
 export {
+	EmployeeWithNoFirstPayPeriodStartDate,
+	EmployeeWithNoTimeCardEntryType,
 	User,
 	allEmployees,
 	regularTimeEntryEmployees,
 	setTimeInTimeOutEmployees,
-	timePunchEmployees,
+	timePunchEmployees
 };

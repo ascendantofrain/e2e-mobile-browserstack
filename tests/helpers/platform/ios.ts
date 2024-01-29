@@ -1,6 +1,6 @@
-import { ElementSelector } from '../definitions';
+import { ElementSelector, ElementTypeSelector } from '../definitions';
 
-export function findElementIosTextEquals({ text }: ElementSelector) {
+export function findElementTextEqualsIos({ text }: ElementSelector) {
 	if (text) {
 		return `-ios class chain:**/XCUIElementTypeAny[\`label == "${text}" OR value == "${text}"\`]`;
 	} else {
@@ -8,7 +8,7 @@ export function findElementIosTextEquals({ text }: ElementSelector) {
 	}
 }
 
-export function findElementIosTextContains({ text }: ElementSelector) {
+export function findElementTextContainsIos({ text }: ElementSelector) {
 	if (text) {
 		return `-ios class chain:**/XCUIElementTypeAny[\`label CONTAINS[c] "${text}" OR value CONTAINS[c] "${text}"\`]`;
 	} else {
@@ -16,7 +16,7 @@ export function findElementIosTextContains({ text }: ElementSelector) {
 	}
 }
 
-export function findElementIosNameEquals({ text }: ElementSelector) {
+export function findElementNameEqualsIos({ text }: ElementSelector) {
 	if (text) {
 		return `-ios class chain:**/XCUIElementTypeAny[\`name == "${text}" OR value == "${text}"\`]`;
 	} else {
@@ -24,7 +24,7 @@ export function findElementIosNameEquals({ text }: ElementSelector) {
 	}
 }
 
-export function findElementIosNameContains({ text }: ElementSelector) {
+export function findElementNameContainsIos({ text }: ElementSelector) {
 	if (text) {
 		return `-ios class chain:**/XCUIElementTypeAny[\`name CONTAINS[c] "${text}" OR value CONTAINS[c] "${text}"\`]`;
 	} else {
@@ -32,15 +32,7 @@ export function findElementIosNameContains({ text }: ElementSelector) {
 	}
 }
 
-export function findElementIosTypeKey({ text }: ElementSelector) {
-	if (text) {
-		return `//XCUIElementTypeKey[@name="${text}"]`;
-	} else {
-		throw new Error('Unknown element type key strategy');
-	}
-}
-
-export function findElementIosValueEquals({ text }: ElementSelector) {
+export function findElementValueEqualsIos({ text }: ElementSelector) {
 	if (text) {
 		return `-ios class chain:**/XCUIElementTypeAny[\`value == "${text}"\`]`;
 	} else {
@@ -48,10 +40,18 @@ export function findElementIosValueEquals({ text }: ElementSelector) {
 	}
 }
 
-export function findElementIosValueContains({ text }: ElementSelector) {
+export function findElementValueContainsIos({ text }: ElementSelector) {
 	if (text) {
 		return `-ios class chain:**/XCUIElementTypeAny[\`value CONTAINS[c] "${text}"\`]`;
 	} else {
 		throw new Error('Unknown value contains selector strategy');
+	}
+}
+
+export function findElementByTypeIos({ type }: ElementTypeSelector) {
+	if (type) {
+		return `//${type}`;
+	} else {
+		throw new Error('Unknown element type selector strategy');
 	}
 }

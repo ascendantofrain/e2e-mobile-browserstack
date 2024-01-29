@@ -1,7 +1,8 @@
+import { elementTypes } from '../helpers/index.ts';
 import {
+	findElementByType,
 	findElementNameContains,
-	findElementNameEquals,
-	findElementValueContains
+	findElementNameEquals
 } from '../helpers/platform/webdriver-actions.ts';
 
 import Page from './page.ts';
@@ -12,7 +13,7 @@ class Comments extends Page {
 	}
 
 	get getEmployeeCommentsTextArea() {
-		return findElementValueContains('Employee Comments');
+		return findElementByType(elementTypes.TEXTAREA);
 	}
 
 	get saveButton() {
@@ -31,7 +32,7 @@ class Comments extends Page {
 		return (await this.getEmployeeCommentsTextArea).setValue(comment);
 	}
 
-	async clearComment(comment: string) {
+	async clearComment() {
 		return (await this.getEmployeeCommentsTextArea).clearValue();
 	}
 

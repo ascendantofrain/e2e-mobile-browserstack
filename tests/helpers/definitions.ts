@@ -7,6 +7,9 @@ export interface ElementActionOptions {
 }
 
 export interface ElementSelector {
-	text?: string;
-	ref?: string;
+	text: string;
+}
+
+export interface ElementTypeSelector {
+	type: string;
 }

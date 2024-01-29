@@ -1,6 +1,6 @@
-import { ElementSelector } from '../definitions';
+import { ElementSelector, ElementTypeSelector } from '../definitions';
 
-export function findElementAndroidTextEquals({ text }: ElementSelector) {
+export function findElementByTextEqualsAndroid({ text }: ElementSelector) {
 	if (text) {
 		return `android=new UiSelector().text("${text}")`;
 	} else {
@@ -8,7 +8,7 @@ export function findElementAndroidTextEquals({ text }: ElementSelector) {
 	}
 }
 
-export function findElementAndroidTextContains({ text }: ElementSelector) {
+export function findElementByTextContainsAndroid({ text }: ElementSelector) {
 	if (text) {
 		return `android=new UiSelector().textContains("${text}")`;
 	} else {
@@ -16,10 +16,10 @@ export function findElementAndroidTextContains({ text }: ElementSelector) {
 	}
 }
 
-export function findElementAndroidTypeKey({ text }: ElementSelector) {
-	// if (text) {
-	// 	return `-ios class chain:**/XCUIElementTypeKey[\`name == "${text}" AND label == "${text}"\`]`;
-	// } else {
-	throw new Error('Not implemented');
-	//}
+export function findElementByTypeAndroid({ type }: ElementTypeSelector) {
+	if (type) {
+		//return `//${type}`;
+	} else {
+		throw new Error('Unknown element type selector strategy');
+	}
 }

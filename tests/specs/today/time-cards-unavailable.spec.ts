@@ -1,14 +1,9 @@
-import { employeesByType } from '../../helpers/users.ts';
-import {
-	Footer,
-	Login,
-	Profile,
-	Today
-} from '../../pageobjects/pages.ts';
+import { EmployeeWithNoTimeCardEntryType } from '../../helpers/users.ts';
+import { Footer, Login, Profile, Today } from '../../pageobjects/pages.ts';
 
-describe(`Login for ${employeesByType.NoTimeCardEntryType}`, () => {
+describe(`Login for ${EmployeeWithNoTimeCardEntryType.username}`, () => {
 	before(async () => {
-		await Login.clickUserLogin(employeesByType.NoTimeCardEntryType);
+		await Login.clickUserLogin(EmployeeWithNoTimeCardEntryType);
 	});
 
 	after(async () => {
@@ -17,7 +12,7 @@ describe(`Login for ${employeesByType.NoTimeCardEntryType}`, () => {
 	});
 
 	it('Should display warning that time cards are currently unavailable', async () => {
-		await Today.verifyTimeCardCurrentlyUnavailableWarning()
-		await Footer.timeCardsTabShouldBeDisabled()
+		await Today.verifyTimeCardCurrentlyUnavailableWarning();
+		await Footer.timeCardsTabShouldBeDisabled();
 	});
 });

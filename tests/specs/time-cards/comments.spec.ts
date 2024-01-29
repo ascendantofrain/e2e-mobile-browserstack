@@ -1,7 +1,7 @@
 import { allEmployees } from '../../helpers/users.ts';
 import { Comments, Footer, Login, Profile } from '../../pageobjects/pages.ts';
 
-const comment = `Employee Comments - This is a test`;
+const comment = `This is a test comment via WebDriver.io test automation on ${new Date().toISOString()}`;
 
 allEmployees.forEach((employee) => {
 	describe(`Time Card comments for ${employee.username}`, () => {
@@ -10,11 +10,6 @@ allEmployees.forEach((employee) => {
 		});
 
 		after(async () => {
-			await Comments.clickCommentsButton();
-			await Comments.clearComment(comment);
-			await Comments.saveComment();
-			await Comments.closeCommentsModal();
-
 			await Footer.clickProfileTabButton();
 			await Profile.clickLogoutButton();
 		});

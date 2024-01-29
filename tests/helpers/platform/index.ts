@@ -3,6 +3,14 @@ import WebView, { CONTEXT_REF } from '../webview.ts';
 export * from './android.ts';
 export * from './ios.ts';
 
+export const elementTypes = {
+	BUTTON: isIOS() ? 'XCUIElementTypeButton' : '',
+	IMAGE: isIOS() ? 'XCUIElementTypeImage' : '',
+	TEXT: isIOS() ? 'XCUIElementTypeStaticText' : '',
+	TEXTAREA: isIOS() ? 'XCUIElementTypeTextView' : '',
+	OTHER: isIOS() ? 'XCUIElementTypeOther' : ''
+};
+
 export async function waitForLoad() {
 	if (isWeb()) {
 		return Promise.resolve();
@@ -79,8 +87,8 @@ export async function dismissKeyboard() {
 		},
 		{
 			timeout: 5000,
-			interval: 100,
-		},
+			interval: 100
+		}
 	);
 	await driver.hideKeyboard('pressKey', 'Done');
 }
@@ -123,7 +131,7 @@ export async function setLocation(lat: number, lng: number) {
 	return driver.setGeoLocation({
 		latitude: '' + lat,
 		longitude: '' + lat,
-		altitude: '94.23',
+		altitude: '94.23'
 	});
 }
 
