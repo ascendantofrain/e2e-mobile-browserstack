@@ -4,7 +4,7 @@ import { Comments, Footer, Login, Profile } from '../../pageobjects/pages.ts';
 const comment = `This is a test comment via WebDriver.io test automation on ${new Date().toISOString()}`;
 
 allEmployees.forEach((employee) => {
-	describe(`Time Card comments for ${employee.username}`, () => {
+	describe(`Time Card comments`, () => {
 		before(async () => {
 			await Login.clickUserLogin(employee);
 		});
@@ -14,7 +14,7 @@ allEmployees.forEach((employee) => {
 			await Profile.clickLogoutButton();
 		});
 
-		it('Should be able to add a comment to the current time card', async () => {
+		it(`Should be able to add a comment to the current time card  for ${employee.username}`, async () => {
 			await Footer.clickTimeCardsTabButton();
 			await Comments.clickCommentsButton();
 			await Comments.typeComment(comment);

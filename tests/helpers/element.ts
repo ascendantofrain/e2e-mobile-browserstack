@@ -13,21 +13,7 @@ export async function waitForElement(
 		await Gestures.checkIfDisplayedWithSwipeUp(el, 5);
 	}
 
-	waitForEnabled(selector);
+	await el.waitForEnabled({ timeout: visibilityTimeout });
 
 	return el;
-}
-
-export async function waitForEnabled(
-	selector: string,
-	{ visibilityTimeout = 5000 }: ElementActionOptions = {}
-) {
-	const el = await $(selector);
-
-	await $(el).waitUntil(
-		async () => {
-			return (await this.isEnabled()) === true;
-		},
-		{ timeout: visibilityTimeout }
-	);
 }

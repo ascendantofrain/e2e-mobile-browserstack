@@ -1,6 +1,6 @@
 import { elementTypes } from '../helpers/index.ts';
 import {
-	findElementByType,
+	findElementByTypeOrXPath,
 	findElementNameContains,
 	findElementNameEquals
 } from '../helpers/platform/webdriver-actions.ts';
@@ -13,7 +13,7 @@ class Comments extends Page {
 	}
 
 	get getEmployeeCommentsTextArea() {
-		return findElementByType(elementTypes.TEXTAREA);
+		return findElementByTypeOrXPath(elementTypes.TEXTAREA);
 	}
 
 	get saveButton() {

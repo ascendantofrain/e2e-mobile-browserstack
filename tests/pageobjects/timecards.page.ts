@@ -1,4 +1,5 @@
 import {
+	findElementNameBeginsWithAndEndsWith,
 	findElementNameContains,
 	findElementNameEquals
 } from '../helpers/platform/webdriver-actions.ts';
@@ -26,8 +27,8 @@ class TimeCards extends Page {
 		return findElementNameEquals('Edit Time Card');
 	}
 
-	async submitHoursButton(hours: string) {
-		return findElementNameEquals(`Submit ${hours} hours`);
+	get submitHoursButton() {
+		return findElementNameBeginsWithAndEndsWith('Submit', 'hours');
 	}
 
 	async resetTimeCardHours() {
@@ -48,8 +49,8 @@ class TimeCards extends Page {
 		return (await this.resetAlertButton).click();
 	}
 
-	async clickSubmitHoursButton(hours: string) {
-		return (await this.submitHoursButton(hours)).click();
+	async clickSubmitHoursButton() {
+		return (await this.submitHoursButton).click();
 	}
 
 	async clickEditTimeCardButton() {

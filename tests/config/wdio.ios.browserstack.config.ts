@@ -5,31 +5,25 @@ config.services = [
 	[
 		'browserstack',
 		{
-			app: 'bs://68c292cc15f36f5e6e5db89d3c6319cb2cf71be4',
-			buildIdentifier: '${BUILD_NUMBER}',
+			app: 'bs://e9caca472f6c5764accec2b278c0dc6db62d3588',
 			browserstackLocal: false,
-		},
-	],
+			parallelsPerPlatform: 2
+		}
+	]
 ];
 config.capabilities = [
 	{
 		'bstack:options': {
-			networkLogs: true,
+			buildName: 'v0.8.1- Build ios-4/android-37',
+			buildIdentifier: 'Build #${BUILD_NUMBER}',
+			projectName: 'MyPatriot Mobile Time Tracker',
 			deviceName: 'iPhone 14 Pro Max',
 			platformVersion: '16',
 			platformName: 'ios',
-			timezone: 'New_York',
-		},
-	},
-	{
-		'bstack:options': {
-			networkLogs: true,
-			deviceName: 'iPhone SE 2020',
-			platformVersion: '16.4',
-			platformName: 'ios',
-			timezone: 'New_York',
-		},
-	},
+			debug: true,
+			networkLogs: true
+		}
+	}
 ];
 
 export { config };

@@ -5,7 +5,8 @@ import {
 } from './android.ts';
 import { isAndroid, isIOS } from './index.ts';
 import {
-	findElementByTypeIos,
+	findElementByTypeOrXPathIos,
+	findElementNameBeginsWithAndEndsWithIos,
 	findElementNameEqualsIos,
 	findElementTextContainsIos,
 	findElementTextEqualsIos,
@@ -49,6 +50,20 @@ export async function findElementNameContains(text: string) {
 	}
 }
 
+export async function findElementNameBeginsWithAndEndsWith(
+	beginsWith: string,
+	endsWith: string
+) {
+	if (isIOS()) {
+		return await waitForElement(
+			findElementNameBeginsWithAndEndsWithIos(beginsWith, endsWith)
+		);
+	}
+	if (isAndroid()) {
+		//return await waitForElement(findElementByTextContainsAndroid(text));
+	}
+}
+
 export async function findElementValueEquals(text: string) {
 	if (isIOS()) {
 		return await waitForElement(findElementValueEqualsIos(text));
@@ -67,9 +82,9 @@ export async function findElementValueContains(text: string) {
 	}
 }
 
-export async function findElementByType(type: string) {
+export async function findElementByTypeOrXPath(type: string) {
 	if (isIOS()) {
-		return await waitForElement(findElementByTypeIos(type));
+		return await waitForElement(findElementByTypeOrXPathIos(type));
 	}
 	if (isAndroid()) {
 		//return await waitForElement(findElementByTypeIos({ type }));

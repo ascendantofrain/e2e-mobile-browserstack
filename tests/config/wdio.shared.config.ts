@@ -1,5 +1,5 @@
 const config: WebdriverIO.Config = {
-	specs: ['../../tests/specs/**/manual/time-entry.spec.ts'],
+	specs: ['../../tests/specs/**/*.spec.ts'],
 	maxInstances: 2,
 	logLevel: 'error',
 	bail: 0,

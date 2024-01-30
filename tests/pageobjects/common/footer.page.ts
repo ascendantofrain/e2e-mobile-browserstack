@@ -1,5 +1,5 @@
-import { findElementNameEquals } from '../helpers/platform/webdriver-actions.ts';
-import Page from './page.ts';
+import { findElementNameEquals } from '../../helpers/platform/webdriver-actions.ts';
+import Page from '../page.ts';
 
 class Footer extends Page {
 	get profileTabButton() {
@@ -12,7 +12,7 @@ class Footer extends Page {
 
 	async clickProfileTabButton() {
 		(await this.profileTabButton).isEnabled();
-		
+
 		return (await this.profileTabButton).click();
 	}
 

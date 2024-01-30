@@ -30,6 +30,19 @@ export function findElementNameContainsIos(text: string) {
 	}
 }
 
+export function findElementNameBeginsWithAndEndsWithIos(
+	beginsWith: string,
+	endsWith: string
+) {
+	if (beginsWith && endsWith) {
+		return `-ios class chain:**/XCUIElementTypeAny[\`name BEGINSWITH[c] "${beginsWith}" AND name ENDSWITH[c] "${endsWith}"\`]`;
+	} else {
+		throw new Error(
+			'Unknown name begins with and ends with contains selector strategy'
+		);
+	}
+}
+
 export function findElementValueEqualsIos(text: string) {
 	if (text) {
 		return `-ios class chain:**/XCUIElementTypeAny[\`value == "${text}"\`]`;
@@ -46,10 +59,10 @@ export function findElementValueContainsIos(text: string) {
 	}
 }
 
-export function findElementByTypeIos(type: string) {
+export function findElementByTypeOrXPathIos(type: string) {
 	if (type) {
 		return `${type}`;
 	} else {
-		throw new Error('Unknown element type selector strategy');
+		throw new Error('Unknown element type or XPath selector strategy');
 	}
 }

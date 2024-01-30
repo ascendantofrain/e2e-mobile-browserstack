@@ -1,22 +1,29 @@
-import { config } from './wdio.shared.appium.config.ts';
+import { config } from './wdio.browserstack.config.ts';
 
+config.services = [
+	'appium',
+	[
+		'browserstack',
+		{
+			app: '',
+			browserstackLocal: false,
+			parallelsPerPlatform: 2
+		}
+	]
+];
 config.capabilities = [
 	{
-		maxInstances: 1,
-		'appium:platformName': 'Android',
-		'appium:automationName': 'UiAutomator2',
-		'appium:orientation': 'PORTRAIT',
-		'appium:newCommandTimeout': 240,
-		'appium:autoWebview': true,
-		'appium:fullContextList': true,
-		'appium:webviewConnectTimeout': 5000,
-
-		// For Local testing against a real device
-		// 'appium:bundleId': 'com.patriotsoftware.mobile.mypatriot',
-		// 'appium:xcodeSigningId': 'iPhone Developer',
-		// 'appium:xcodeOrgId': 'NNFA6HSA7U',
-		// 'appium:udid': '00008130-001C39283C20001C',
-	},
+		'bstack:options': {
+			buildName: 'v0.8.1- Build ios-4/android-37',
+			buildIdentifier: 'Build #${BUILD_NUMBER}',
+			projectName: 'MyPatriot Mobile Time Tracker',
+			deviceName: 'Google Pixel 7 Pro',
+			platformVersion: '13.0',
+			platformName: 'Android',
+			debug: true,
+			networkLogs: true
+		}
+	}
 ];
 
 export { config };
